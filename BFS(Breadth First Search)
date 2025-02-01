@@ -1,0 +1,29 @@
+def bfs(graph, start):
+    queue = []
+    visited = set()
+    queue.append(start)
+    visited.add(start)
+
+    print("BFS Traversal:", end=" ")
+
+    while queue:
+        current = queue.pop(0)
+        print(current, end=" -> ")
+
+        for neighbor in graph[current]:
+            if neighbor not in visited:
+                queue.append(neighbor)
+                visited.add(neighbor)
+
+    print("None")
+
+
+graph = {
+    1: [2, 3],
+    2: [4, 5],
+    3: [6],
+    4: [],
+    5: [6],
+    6: []
+}
+bfs(graph, start=1)
