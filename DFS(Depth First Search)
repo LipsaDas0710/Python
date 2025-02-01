@@ -1,0 +1,30 @@
+def dfs(graph, start):
+    stack = []
+    visited = set()
+    stack.append(start)
+
+    print("DFS Traversal:", end=" ")
+
+    while stack:
+        current = stack.pop()
+
+        if current not in visited:
+            print(current, end=" -> ")
+            visited.add(current)
+
+            for neighbor in reversed(graph[current]):
+                if neighbor not in visited:
+                    stack.append(neighbor)
+
+    print("None")
+    
+graph = {
+    1: [2, 3],
+    2: [4, 5],
+    3: [6],
+    4: [],
+    5: [6],
+    6: []
+}
+
+dfs(graph,start=1)
